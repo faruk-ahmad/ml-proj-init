@@ -9,3 +9,9 @@ class Validation():
 
     def __init__(self):
         pass
+
+    def is_valid_mode(self, run_mode):
+        """
+        Method for validating user input for run mode
+        """
+        pass
