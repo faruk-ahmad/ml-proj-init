@@ -11,6 +11,11 @@ from ml_proj_init.utils import Utility
 from ml_proj_init.validation import Validation
 
 
+# lets create obj of Utility and Validation class
+util = Utility()
+val = Validation()
+
+
 """
 start method for ml-project-init python lib
 """
@@ -37,6 +42,7 @@ def start():
     ml_proj_parser.add_argument(
                                 "-m",
                                 "--mode",
+                                metavar="mode",
                                 type=str,
                                 choices=["c", "a"],
                                 help="Mode to run ml-proj-init to create or append project structure.",
@@ -53,9 +59,10 @@ def start():
     ml_proj_parser.add_argument(
                                 "-n",
                                 "--name",
+                                metavar="name",
                                 type=str,
                                 help="Project name to initialize the project.",
-                                required=True
+                                required=False
                                 )
 
     """
@@ -67,6 +74,7 @@ def start():
     ml_proj_parser.add_argument(
                                 "-p",
                                 "--path",
+                                metavar="path",
                                 type=str,
                                 help="A valid path to create the project stucture.",
                                 required=False
@@ -82,14 +90,24 @@ def start():
     ml_proj_parser.add_argument(
                                 "-t",
                                 "--type",
+                                metavar="type",
                                 type=str,
                                 help="Type of project to create project structure.",
                                 choices=["ml", "dl"],
-                                default="ml"
+                                default="ml",
+                                required=False
                                 )
 
     ml_proj_args = ml_proj_parser.parse_args()
-    print(ml_proj_args)
+    
+    proj_mode = ml_proj_args.mode
+    proj_path = ml_proj_args.path
+    proj_name = ml_proj_args.name
+    proj_type = ml_proj_args.type
+
+    # now lets validate all the arguments and take decision what to do next with those arguments
+    GOOD_TO_GO_CREATE = False
+    GOOD_TO_GO_APPEND = False
 
 
 if __name__ == '__main__':
