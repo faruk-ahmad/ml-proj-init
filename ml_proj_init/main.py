@@ -13,8 +13,8 @@ from ml_proj_init.validation import Validation
 
 """
 start method for ml-project-init python lib
-
 """
+
 def start():
     # first create the argument parser
     ml_proj_parser = argparse.ArgumentParser(
