@@ -21,7 +21,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'ml-proj-init = ml_proj_init.__main__:main',
+            'ml-proj-init = ml_proj_init.main:start',
         ]
     },
     install_requires=install_requires,
