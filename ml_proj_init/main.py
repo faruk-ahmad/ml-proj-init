@@ -7,8 +7,8 @@ import sys
 import argparse
 
 # import required classes
-from utils import Utility
-from validation import Validation
+from ml_proj_init.utils import Utility
+from ml_proj_init.validation import Validation
 
 
 # lets create obj of Utility and Validation class

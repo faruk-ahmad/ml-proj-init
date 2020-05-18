@@ -4,9 +4,10 @@ A module for validatinig different parameters given by user
 
 import os
 import string
+import sys
 
 # import configs
-from config import config
+from ml_proj_init.config import config
 
 class Validation():
     """

@@ -1,1 +1,1 @@
-recursive-include py_proj_init/data/ *
+recursive-include ml_proj_init/data/ *

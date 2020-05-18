@@ -5,7 +5,7 @@ A module for defining the config parameters globally
 import os
 import string
 
-current_abs_path = os.path.abspath(os.path.dirname(__file__))
+current_abs_path = os.path.split(os.path.realpath(__file__))[0]
 print(current_abs_path)
 
 config = {

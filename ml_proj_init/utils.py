@@ -6,7 +6,9 @@ import os
 import sys
 import shutil
 
-from config import config
+sys.path.append('.')
+
+from ml_proj_init.config import config
 
 class Utility():
     """
