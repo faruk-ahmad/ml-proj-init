@@ -44,7 +44,7 @@ def start():
                                 "--mode",
                                 metavar="mode",
                                 type=str,
-                                choices=["c", "a"],
+                                choices=["c", "a", "C", "A"],
                                 help="Mode to run ml-proj-init to create or append project structure.",
                                 required=True,
                                 default="c"
@@ -93,21 +93,57 @@ def start():
                                 metavar="type",
                                 type=str,
                                 help="Type of project to create project structure.",
-                                choices=["ml", "dl"],
+                                choices=["ml", "dl", "ML", "DL"],
                                 default="ml",
                                 required=False
                                 )
 
     ml_proj_args = ml_proj_parser.parse_args()
     
-    proj_mode = ml_proj_args.mode
+    proj_mode = ml_proj_args.mode.lower()
     proj_path = ml_proj_args.path
     proj_name = ml_proj_args.name
-    proj_type = ml_proj_args.type
+    proj_type = ml_proj_args.type.lower()
+
+    print(f'Proj Mode: {proj_mode}\nProj Path: {proj_path}\nProj Name: {proj_name}\nProj Type: {proj_type}')
 
     # now lets validate all the arguments and take decision what to do next with those arguments
     GOOD_TO_GO_CREATE = False
     GOOD_TO_GO_APPEND = False
+
+    # lets start with the creation mode
+
+    if proj_mode == "c":
+        if proj_path is None:
+            proj_path = os.getcwd()
+        print(f"Project Path: {proj_path}")
+
+        #check if the path is valid
+        if val.is_valid_path(proj_path):
+            if val.is_valid_project_name(proj_name):
+                proj_dir = os.path.join(proj_path, proj_name)
+                if val.is_path_exists(proj_dir):
+                    consent = util.get_user_consent()
+                    if consent == "y":
+                        print(f"Deleting existing directory: {proj_dir}...")
+                        deleted = util.delete_existing_path(proj_dir)
+                    else:
+                        print(f"Exiting...")
+                        sys.exit(0)
+                else:
+                    pass
+            else:
+                print(f"{proj_name} is invalid.")
+                sys.exit(0)
+        else:
+            print(f"{proj_path} is invalid.")
+            sys.exit(0)
+
+
+    # lets work on the append mode now
+
+    if proj_mode.lower() == "a":
+        pass
 
 
 if __name__ == '__main__':
