@@ -25,15 +25,21 @@ class Utility():
 
         return consent
 
-    def delete_existing_path(self, proj_path, proj_name):
+    def delete_existing_path(self, proj_dir):
         """
         Method to try to delete existing path based on user consent
         """
         try:
-            proj_full_path = os.path.join(proj_path, proj_name)
-            shutil.rmtree(proj_full_path)
+            shutil.rmtree(proj_dir)
         except Exception as e:
             print("Path not writable, can not delete directory.")
             return False
         else:
             return True
+
+    
+    def create_ml_project_structure(self):
+        """
+        Method to create ML project structure
+        """
+        pass
