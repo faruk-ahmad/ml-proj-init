@@ -6,7 +6,7 @@ import os
 import string
 
 # import configs
-from ml_proj_init.config import config
+from config import config
 
 class Validation():
     """
