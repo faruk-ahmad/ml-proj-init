@@ -52,12 +52,11 @@ class Validation():
             return True
         return False
 
-    def is_path_exists(self, proj_path, proj_name):
+    def is_path_exists(self, proj_dir):
         """
         Method to check if project directory already exists, if exists prompt to delete the existing directory
         """
-        proj_full_path = os.path.join(proj_path, proj_name)
 
-        if os.path.exists(proj_full_path) and os.path.isdir(proj_full_path):
+        if os.path.exists(proj_dir) and os.path.isdir(proj_dir):
             return True
         return False
