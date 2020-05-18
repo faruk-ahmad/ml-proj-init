@@ -7,8 +7,8 @@ import sys
 import argparse
 
 # import required classes
-from ml_proj_init.utils import Utility
-from ml_proj_init.validation import Validation
+from utils import Utility
+from validation import Validation
 
 
 # lets create obj of Utility and Validation class
@@ -130,8 +130,11 @@ def start():
                     else:
                         print(f"Exiting...")
                         sys.exit(0)
+                created = util.create_project_structure(proj_type, proj_dir)
+                if created:
+                    print("Project structure created.")
                 else:
-                    pass
+                    print("Something went wrong, check the arguments.")
             else:
                 print(f"{proj_name} is invalid.")
                 sys.exit(0)
