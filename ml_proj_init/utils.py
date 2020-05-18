@@ -6,13 +6,16 @@ import os
 import sys
 import shutil
 
+from config import config
+
 class Utility():
     """
     A class that holds necessary methods for some utility tasks
     """
 
     def __init__(self):
-        pass
+        self.ml_template_path = config["ml_template_path"]
+        self.dl_template_path = config["dl_template_path"]
 
 
     def get_user_consent(self):
@@ -38,8 +41,26 @@ class Utility():
             return True
 
     
-    def create_ml_project_structure(self):
+    def create_project_structure(self, proj_type, proj_dir):
         """
         Method to create ML project structure
         """
-        pass
+        if proj_type == "ml":
+            try:
+                print(f"Creating ML project structure...")
+                shutil.copytree(self.ml_template_path, proj_dir)
+            except Exception as e:
+                print(f"Exception occurred. {e}")
+                return False
+            else:
+                return True 
+        
+        if proj_type == "dl":
+            try:
+                print(f"Creating DL project structure...")
+                shutil.copytree(self.dl_template_path, proj_dir)
+            except Exception as e:
+                print(f"Exception occurred. {e}")
+                return False
+            else:
+                return True
