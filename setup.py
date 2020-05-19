@@ -9,7 +9,7 @@ with open('requirements.txt', 'r') as f:
 
 setuptools.setup(
     name="ml_proj_init",
-    version="1.0.10",
+    version="1.0.17",
     author="faruk-ahmad",
     author_email="faruk.csebrur@gmail.com",
     description="Machine learning and Deep learning project structure initializer",
@@ -21,7 +21,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         'console_scripts': [
-            'ml-proj-init = ml_proj_init.main:start',
+            'ml-proj-init = ml_proj_init.__main__:start',
         ]
     },
     install_requires=install_requires,

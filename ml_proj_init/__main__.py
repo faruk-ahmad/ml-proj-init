@@ -7,9 +7,9 @@ import sys
 import argparse
 
 # import required classes
-from ml_proj_init.utils import Utility
-from ml_proj_init.validation import Validation
-
+from .utils import Utility
+from .validation import Validation
+from .config import configs
 
 # lets create obj of Utility and Validation class
 util = Utility()
@@ -44,7 +44,7 @@ def start():
                                 "--mode",
                                 metavar="mode",
                                 type=str,
-                                choices=["c", "a", "C", "A"],
+                                choices=configs["run_name_choices"],
                                 help="Mode to run ml-proj-init to create or append project structure.",
                                 required=True,
                                 default="c"
@@ -93,7 +93,7 @@ def start():
                                 metavar="type",
                                 type=str,
                                 help="Type of project to create project structure.",
-                                choices=["ml", "dl", "ML", "DL"],
+                                choices=configs["valid_proj_type"],
                                 default="ml",
                                 required=False
                                 )

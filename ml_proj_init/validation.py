@@ -7,7 +7,7 @@ import string
 import sys
 
 # import configs
-from ml_proj_init.config import config
+from .config import configs
 
 class Validation():
     """
@@ -15,11 +15,11 @@ class Validation():
     """
 
     def __init__(self):
-        self.valid_choice_run_mode = config["run_name_choices"]
-        self.proj_name_first_char = config["proj_name_first_char"]
-        self.proj_name_rest_part = config["proj_name_allowed_char"]
-        self.proj_name_length = config["proj_name_length"]
-        self.valid_project_type = config["valid_proj_type"]
+        self.valid_choice_run_mode = configs["run_name_choices"]
+        self.proj_name_first_char = configs["proj_name_first_char"]
+        self.proj_name_rest_part = configs["proj_name_allowed_char"]
+        self.proj_name_length = configs["proj_name_length"]
+        self.valid_project_type = configs["valid_proj_type"]
 
 
     def is_valid_mode(self, run_mode):

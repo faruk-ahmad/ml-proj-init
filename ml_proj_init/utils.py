@@ -6,9 +6,8 @@ import os
 import sys
 import shutil
 
-sys.path.append('.')
 
-from ml_proj_init.config import config
+from .config import configs
 
 class Utility():
     """
@@ -16,8 +15,10 @@ class Utility():
     """
 
     def __init__(self):
-        self.ml_template_path = config["ml_template_path"]
-        self.dl_template_path = config["dl_template_path"]
+        self.ml_template_path = configs["ml_template_path"]
+        self.dl_template_path = configs["dl_template_path"]
+        self.data_loader_path = configs["data_loader_path"]
+        self.network_template_path = configs["network_template_path"]
 
 
     def get_user_consent(self):
