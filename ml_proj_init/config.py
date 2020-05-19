@@ -13,6 +13,9 @@ configs = {}
 configs["run_name_choices"] = ["c", "a", "A", "C"]
 configs["valid_proj_type"] = ["ml", "dl", "ML", "DL"]
 
+configs["data_loader_types"] = ["img", "text", "csv"]
+configs["nn_architecture_types"] = ["cnn", "lstm", "regressor"]
+
 configs["proj_name_first_char"] = string.ascii_lowercase
 configs["proj_name_allowed_char"] = string.ascii_lowercase + string.digits + "_" + "-"
 configs["proj_name_length"] = 80
