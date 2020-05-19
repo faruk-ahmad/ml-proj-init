@@ -1,0 +1,3 @@
+To run as module from ml-proj-init directory
+
+python -m ml_proj_init.__main__ <parameters>
