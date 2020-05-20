@@ -98,6 +98,30 @@ def start():
                                 required=False
                                 )
 
+    """
+    User can pass the type of data loader to add to the project with this argument.
+    """
+    ml_proj_parser.add_argument(
+                                "-l",
+                                "--loader",
+                                metavar="loader",
+                                help="Type of data loader to add to project",
+                                choices=configs["data_loader_types"],
+                                required=False
+                                )
+
+    """
+    User can pass the type of network architecture to add to the project with this argument.
+    """
+    ml_proj_parser.add_argument(
+                                "-net",
+                                "--network",
+                                metavar="network",
+                                help="Type of network architecture to add to the project",
+                                choices=configs["nn_architecture_types"],
+                                required=False
+                                )
+
     ml_proj_args = ml_proj_parser.parse_args()
     
     proj_mode = ml_proj_args.mode.lower()
@@ -105,19 +129,24 @@ def start():
     proj_name = ml_proj_args.name
     proj_type = ml_proj_args.type.lower()
 
-    print(f'Proj Mode: {proj_mode}\nProj Path: {proj_path}\nProj Name: {proj_name}\nProj Type: {proj_type}')
+    data_loader_type = ml_proj_args.loader
+    network_architecture_type = ml_proj_args.network
+
+    print(f'Proj Mode: {proj_mode}\nProj Path: {proj_path}\nProj Name: {proj_name}\nProj Type: {proj_type}\nData Loader: {data_loader_type}\nNetwork Architecture: {network_architecture_type}')
 
     # now lets validate all the arguments and take decision what to do next with those arguments
     GOOD_TO_GO_CREATE = False
     GOOD_TO_GO_APPEND = False
 
+
+    # if the project path is not given, we assume current working directory as the path.
+    if proj_path is None:
+        proj_path = os.getcwd()
+    print(f"Project Path: {proj_path}")
+
     # lets start with the creation mode
 
     if proj_mode == "c":
-        if proj_path is None:
-            proj_path = os.getcwd()
-        print(f"Project Path: {proj_path}")
-
         #check if the path is valid
         if val.is_valid_path(proj_path):
             if val.is_valid_project_name(proj_name):
@@ -146,7 +175,34 @@ def start():
     # lets work on the append mode now
 
     if proj_mode.lower() == "a":
-        pass
+        # check if all the argument for append mode are None, then exit
+        if data_loader_type is None and network_architecture_type is None:
+            print(f"Nothing to append. Exiting...")
+            sys.exit(0)
+
+        # lets check if there is anything to do with data loader
+        if data_loader_type is not None:
+            data_loader = data_loader_type.lower()
+            if val.is_valid_path(proj_path):
+                data_loader_appended = util.append_data_loader(proj_path, data_loader)
+                if data_loader_appended:
+                    print(f"{data_loader} - data loader added to project. Check {proj_path}/src directory.")
+                else:
+                    print(f"Something went wrong with appending data loader.")
+                    sys.exit(0)
+
+
+        # lets check if there is anything to do with network architecture
+        if network_architecture_type is not None:
+            network_type = network_architecture_type.lower()
+            if val.is_valid_path(proj_path):
+                network_type_appended = util.append_network_architecture(proj_path, network_type)
+                if network_type_appended:
+                    print(f"{network_type} - network architecture added to project. Check {proj_path}/src directory.")
+                else:
+                    print(f"Something went wrong with appending network architecture.")
+                    sys.exit(0)
+
 
 
 if __name__ == '__main__':
