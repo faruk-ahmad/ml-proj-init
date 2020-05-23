@@ -51,13 +51,12 @@ ML-PROJ-INIT has two mode
 1. Create structure mode
 2. Add class/code snipt mode
 
--- In create mode, you can create a well defined project structure for your machine learning or deep learning project by passing few arguments.
 
 #### 4.1 Creating project structure
 
 ------------------------------------------------------
 
-The create structure mode supports the following parameters - 
+In create mode, you can create a well defined project structure for your machine learning or deep learning project by passing few arguments. The create structure mode supports the following parameters - 
 
 #### Creation mode parameters:
 
@@ -68,11 +67,28 @@ The create structure mode supports the following parameters -
 | ```-p``` or ```--path``` | string, a valid path | ```-p path``` or ```--path path``` | Path to create the project | Optional, if not given use the current working directory as the path |
 | ```-t``` or ```--type``` |  ```ml``` or ```dl``` | ```-t=ml``` or ```--type=ml``` or ```-t dl``` or ```--type dl``` | project type to create, sklearn based ml project or keras based dl project | Optional, if not given use "ml" as the default value |
 
+
+#### Example:
+-----------------------------------------------------
+To create project strucure for a project named ```hello-world``` in ```/home/user/Desktop/``` location and if the project type is ```deep learning``` , then run the following command - 
+
+```bash
+ml-proj-init -m=c -n=hello-world -p=/home/user/Desktop/ -t=dl
+```
+
+or
+
+```bash
+ml-proj-init -m c -n hello-world -p /home/user/Desktop/ -t dl
+```
+
 -----------------------------------------------------
 
 #### 4.2 Appending class/code snipt
 
 -------------------------------------------------------------------------
+
+In append mode, you can easily generate required class implementation or code snipt for loading different data source or building few common machine learning or deep learning model architecture.
 
 #### Append mode parameters:
 
@@ -83,6 +99,20 @@ The create structure mode supports the following parameters -
 | ```-l``` or ```--loader``` | ```img``` or ```text``` or ```csv``` | ```-l=img``` or ```--loader=img``` or ```-l text``` or ```--loader csv``` | Data loader type to generate instant code snipt | Optional, no default |
 | ```-net``` or ```--network``` | ```cnn``` or ```lstm``` or ```nn``` | ```-net=cnn``` or ```--network=lstm``` or ```-net nn``` | Network type to generate code snipt for common architecture | Optional, no default |
 
+
+#### Example:
+-----------------------------------------------------
+To add a data loader for ```image``` type data and or a simple ```cnn`` architecture to classify the image run the following command-
+
+```bash
+ml-proj-init -m=a -l=img -net=cnn -p=/home/user/Desktop/
+```
+
+or
+
+```bash
+ml-proj-init -m a -l img -net cnn -p /home/user/Desktop/
+```
 --------------------------------------------------------------------------
 
 ## 5. Features
