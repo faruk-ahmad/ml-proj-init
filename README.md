@@ -20,6 +20,10 @@ __ml-proj-init__ is a python package to help you to do your machine learning exp
 
 The installation process is OS independent. If you have a working python 3.5 or newer version in your computer and pip3 as the package manager, you can easilty install the package just by following instructions.
 
+#### 2.1.0 Dependency
+
+* **Python 3.x **
+
 #### 2.1.1 Installation
 
 * Install using the following command-
