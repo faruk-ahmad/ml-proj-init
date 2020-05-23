@@ -59,16 +59,35 @@ ML-PROJ-INIT has two mode
 
 #### 4.1 Creating project structure
 
+------------------------------------------------------
+
 The create structure mode supports the following parameters - 
 
+#### Creation mode parameters:
 
+| Parameter | Accepted Values | Format | Usage | Default Values |
+|--------------|--------------------|----------|---------------|---------------------|
+| ```-m```  or  ```--mode``` | ```c``` | ```-m=c```  or  ``` --mode=c```  or ```-m c```  or  ``` --mode c``` | c for creating structure | Required, no default |
+| ```-n```  or  ```--name``` | string, a valid project name | ```-n=proj_name``` or ```--name=proj_name``` or ```-n proj_name``` or ```--name proj_name``` | Provide the project name | Required, no default |
+| ```-p``` or ```--path``` | string, a valid path | ```-p path``` or ```--path path``` | Path to create the project | Optional, if not given use the current working directory as the path |
+| ```-t``` or ```--type``` |  ```ml``` or ```dl``` | ```-t=ml``` or ```--type=ml``` or ```-t dl``` or ```--type dl``` | project type to create, sklearn based ml project or keras based dl project | Optional, if not given use "ml" as the default value |
 
-|	Parameter		|		Accepted Values		|		Usage					|
-|-------------------------------|--------------------------------------------|---------------------------------------------------|
-|	-m  or --mode		|		c = create			|		To express create mode		|
-|	-n or --name		|	string, a valid project name	|		Provide the project name	|
-|	-p or --path		|	string, a valid path 		|		Path to create the project	|
+-----------------------------------------------------
 
+#### 4.2 Appending required class/code snipt
+
+-------------------------------------------------------------------------
+
+#### Append mode parameters:
+
+| Parameter | Accepted Values | Format | Usage | Default Values |
+|--------------|--------------------|----------|---------------|---------------------|
+| ```-m```  or  ```--mode``` | ```a``` | ```-m=c```  or  ``` --mode=c```  or ```-m c```  or  ``` --mode c``` | a for appending required class or code snipt | Required, no default |
+| ```-p``` or ```--path``` | string, a valid path | ```-p path``` or ```--path path``` | Path to create the project | Optional, if not given use the current working directory as the path |
+| ```-l``` or ```--loader``` | ```img``` or ```text``` or ```csv``` | ```-l=img``` or ```--loader=img``` or ```-l text``` or ```--loader csv``` | Data loader type to generate instant code snipt | Optional, no default |
+| ```-net``` or ```--network``` | ```cnn``` or ```lstm``` or ```nn``` | ```-net=cnn``` or ```--network=lstm``` or ```-net nn``` | Network type to generate code snipt for common architecture | Optional, no default |
+
+--------------------------------------------------------------------------
 
 ## 5. Features
 --------------------------------------------------
