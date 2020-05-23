@@ -14,7 +14,7 @@ configs["run_name_choices"] = ["c", "a", "A", "C"]
 configs["valid_proj_type"] = ["ml", "dl", "ML", "DL"]
 
 configs["data_loader_types"] = ["img", "text", "csv", "IMG", "TEXT", "CSV"]
-configs["nn_architecture_types"] = ["cnn", "lstm", "regressor", "CNN", "LSTM", "REGRESSOR"]
+configs["nn_architecture_types"] = ["cnn", "lstm", "nn", "CNN", "LSTM", "NN"]
 
 configs["proj_name_first_char"] = string.ascii_lowercase
 configs["proj_name_allowed_char"] = string.ascii_lowercase + string.digits + "_" + "-"
