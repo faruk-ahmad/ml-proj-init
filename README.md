@@ -8,7 +8,7 @@
 
 <p align= "justify">
   
-__ml-proj-init__ is a python package to help you to do your machine learning experiment in pythonn in a faster way by creating well defined project structure just by a few commands that works out of the box for most of the machine learning projects. You can focus on building the solution of your problem rather writing all the basic stuffs that are tedious but can be added to your project easily and in a faster way.
+__ml-proj-init__ is a python package to help you to do your machine learning experiment in python in a faster way by creating well defined project structure just by a few commands that works out of the box for most of the machine learning projects. You can focus on building the solution of your problem rather writing all the basic stuffs that are tedious but can be added to your project easily and in a faster way.
 </p>
 
 --------------------------------------------------
@@ -65,7 +65,7 @@ In create mode, you can create a well defined project structure for your machine
 | ```-m```  or  ```--mode``` | ```c``` | ```-m=c```  or  ``` --mode=c```  or ```-m c```  or  ``` --mode c``` | c for creating structure | Required, no default |
 | ```-n```  or  ```--name``` | string, a valid project name | ```-n=proj_name``` or ```--name=proj_name``` or ```-n proj_name``` or ```--name proj_name``` | Provide the project name | Required, no default |
 | ```-p``` or ```--path``` | string, a valid path | ```-p path``` or ```--path path``` | Path to create the project | Optional, if not given use the current working directory as the path |
-| ```-t``` or ```--type``` |  ```ml``` or ```dl``` | ```-t=ml``` or ```--type=ml``` or ```-t dl``` or ```--type dl``` | project type to create, sklearn based ml project or keras based dl project | Optional, if not given use "ml" as the default value |
+| ```-t``` or ```--type``` |  ```ml``` or ```dl``` | ```-t=ml``` or ```--type=ml``` or ```-t dl``` or ```--type dl``` | project type to create ml project or dl project structure | Optional, if not given use "ml" as the default value |
 
 
 #### Example:
@@ -94,7 +94,7 @@ In append mode, you can easily generate required class implementation or code sn
 
 | Parameter | Accepted Values | Format | Usage | Default Values |
 |--------------|--------------------|----------|---------------|---------------------|
-| ```-m```  or  ```--mode``` | ```a``` | ```-m=c```  or  ``` --mode=c```  or ```-m c```  or  ``` --mode c``` | a for appending required class or code snipt | Required, no default |
+| ```-m```  or  ```--mode``` | ```a``` | ```-m=a```  or  ``` --mode=a```  or ```-m a```  or  ``` --mode a``` | a for appending required class or code snipt | Required, no default |
 | ```-p``` or ```--path``` | string, a valid path | ```-p path``` or ```--path path``` | Path to create the project | Optional, if not given use the current working directory as the path |
 | ```-l``` or ```--loader``` | ```img``` or ```text``` or ```csv``` | ```-l=img``` or ```--loader=img``` or ```-l text``` or ```--loader csv``` | Data loader type to generate instant code snipt | Optional, no default |
 | ```-net``` or ```--network``` | ```cnn``` or ```lstm``` or ```nn``` | ```-net=cnn``` or ```--network=lstm``` or ```-net nn``` | Network type to generate code snipt for common architecture | Optional, no default |
@@ -102,7 +102,7 @@ In append mode, you can easily generate required class implementation or code sn
 
 #### Example:
 -----------------------------------------------------
-To add a data loader for ```image``` type data and or a simple ```cnn`` architecture to classify the image run the following command-
+To add a data loader for ```image``` type data and or a simple ```cnn``` architecture to classify the image run the following command-
 
 ```bash
 ml-proj-init -m=a -l=img -net=cnn -p=/home/user/Desktop/
@@ -120,13 +120,15 @@ ml-proj-init -m a -l img -net cnn -p /home/user/Desktop/
 
 #### 5.1 Features avaiable
 
-* Creating machine learning project structure based on popular ml library scikit-learn
-* Creating deep learning project structure using popular dl library tensorflow and keras
+* Creating machine learning project structure based on popular ml library scikit-learn and others.
+* Creating deep learning project structure using popular dl library tensorflow, keras and others.
 * Adding necessary code snipts for data loader class like image data loader or text data loader.
 * Adding different neural network implementation skeleton in popular deep learning library TF/KERAS.
 
 #### 5.2 Features in Queue
 
+* Adding frequently used data vizualization code snipts
+* Adding feature to generate quick documentation for project, like tables, visualizations etc.
 * Adding more frequently used implementation for quick experiment
 * Adding more implementatioin of NN architecture for experiment
 * Adding more flexible and dynamic code snipt generation.
@@ -134,7 +136,7 @@ ml-proj-init -m a -l img -net cnn -p /home/user/Desktop/
 ## 6. Report Issues
 
 --------------------------------------------------
-Before you report an issue in github, please make sure you are in the same pace with the up to date commit in our github repo and the latest release in pypi. 
+Before you report an issue in github, please make sure you are in the same pace with the up to date commit in our github repo and the latest release from pypi. 
 
 
 ## 7. How to Contribute
