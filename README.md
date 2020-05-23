@@ -25,7 +25,7 @@ The installation process is OS independent. If you have a working python 3.5 or 
 * Install using the following command-
 
 ```bash
-pip3 install ml-proj-init
+pip install ml-proj-init
 ```
 
 
@@ -34,7 +34,7 @@ pip3 install ml-proj-init
 * Uninstall using the following command
 
 ```bash
-pip3 uninstall ml-proj-init
+pip uninstall ml-proj-init
 ```
 
 * Provide "y" if you are prompt for approval to remove some config files.
