@@ -22,7 +22,7 @@ The installation process is OS independent. If you have a working python 3.5 or 
 
 #### 2.1.0 Dependency
 
-* **Python 3.x **
+* <b>Python 3.x</b>
 
 #### 2.1.1 Installation
 
