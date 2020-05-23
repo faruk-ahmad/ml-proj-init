@@ -1,12 +1,10 @@
 # ML-PROJ-INIT
 ----------------------------------------------
 
-----------------------------------------------
 #### A lightweight tool to create machine learning project structure and add neaty code snipt quickly to your project
 
 -----------------------------------------------
 
-----------------------------------------------
 
 <p align= "justify">
   
@@ -15,7 +13,6 @@ __ml-proj-init__ is a python package to help you to do your machine learning exp
 
 --------------------------------------------------
 
---------------------------------------------------
 
 ## 2. Installation
 
@@ -44,11 +41,10 @@ pip3 uninstall ml-proj-init
 
 --------------------------------------------------
 
---------------------------------------------------
 
 ## 4. Getting Started
 
---------------------------------------------------
+
 
 ML-PROJ-INIT has two mode
 
@@ -74,7 +70,7 @@ The create structure mode supports the following parameters -
 
 -----------------------------------------------------
 
-#### 4.2 Appending required class/code snipt
+#### 4.2 Appending class/code snipt
 
 -------------------------------------------------------------------------
 
