@@ -41,6 +41,8 @@ pip3 uninstall ml-proj-init
 
 --------------------------------------------------
 
+See more info here:
+[ml-proj-init in pypi.org](https://pypi.org/project/ml-proj-init/)
 
 ## 4. Getting Started
 
