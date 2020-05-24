@@ -132,7 +132,7 @@ def start():
     data_loader_type = ml_proj_args.loader
     network_architecture_type = ml_proj_args.network
 
-    print(f'Proj Mode: {proj_mode}\nProj Path: {proj_path}\nProj Name: {proj_name}\nProj Type: {proj_type}\nData Loader: {data_loader_type}\nNetwork Architecture: {network_architecture_type}')
+    #print(f'Proj Mode: {proj_mode}\nProj Path: {proj_path}\nProj Name: {proj_name}\nProj Type: {proj_type}\nData Loader: {data_loader_type}\nNetwork Architecture: {network_architecture_type}')
 
     # now lets validate all the arguments and take decision what to do next with those arguments
     GOOD_TO_GO_CREATE = False
@@ -142,7 +142,7 @@ def start():
     # if the project path is not given, we assume current working directory as the path.
     if proj_path is None:
         proj_path = os.getcwd()
-    print(f"Project Path: {proj_path}")
+    #print(f"Project Path: {proj_path}")
 
     # lets start with the creation mode
 
@@ -154,21 +154,21 @@ def start():
                 if val.is_path_exists(proj_dir):
                     consent = util.get_user_consent()
                     if consent == "y":
-                        print(f"Deleting existing directory: {proj_dir}...")
+                        print(f"Message: Deleting existing directory: {proj_dir}...")
                         deleted = util.delete_existing_path(proj_dir)
                     else:
-                        print(f"Exiting...")
+                        print(f"Error: You chose to abort. Exiting...")
                         sys.exit(0)
                 created = util.create_project_structure(proj_type, proj_dir)
                 if created:
-                    print("Project structure created.")
+                    print("Success: project structure created.")
                 else:
-                    print("Something went wrong, check the arguments.")
+                    print("Error: Something went wrong, check the arguments.")
             else:
-                print(f"{proj_name} is invalid.")
+                print(f"Error: Project name: {proj_name} is invalid.")
                 sys.exit(0)
         else:
-            print(f"{proj_path} is invalid.")
+            print(f"Project path: {proj_path} is invalid.")
             sys.exit(0)
 
 
@@ -177,7 +177,7 @@ def start():
     if proj_mode.lower() == "a":
         # check if all the argument for append mode are None, then exit
         if data_loader_type is None and network_architecture_type is None:
-            print(f"Nothing to append. Exiting...")
+            print(f"Error: Nothing to append. Exiting...")
             sys.exit(0)
 
         # lets check if there is anything to do with data loader
@@ -186,9 +186,9 @@ def start():
             if val.is_valid_path(proj_path):
                 data_loader_appended = util.append_data_loader(proj_path, data_loader)
                 if data_loader_appended:
-                    print(f"{data_loader} - data loader added to project. Check {proj_path}/src directory.")
+                    print(f"Success: {data_loader} - data loader added to project. Check {proj_path}/src directory.")
                 else:
-                    print(f"Something went wrong with appending data loader.")
+                    print(f"Error: something went wrong with appending data loader.")
                     sys.exit(0)
 
 
@@ -198,9 +198,9 @@ def start():
             if val.is_valid_path(proj_path):
                 network_type_appended = util.append_network_architecture(proj_path, network_type)
                 if network_type_appended:
-                    print(f"{network_type} - network architecture added to project. Check {proj_path}/src directory.")
+                    print(f"Success: {network_type} - network architecture added to project. Check {proj_path}/src directory.")
                 else:
-                    print(f"Something went wrong with appending network architecture.")
+                    print(f"Error: something went wrong with appending network architecture.")
                     sys.exit(0)
 
 

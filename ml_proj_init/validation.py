@@ -26,38 +26,65 @@ class Validation():
         """
         Method for validating user input for run mode
         """
-        if run_mode in self.valid_choice_run_mode:
-            return True
-        else:
+        try:
+            if run_mode in self.valid_choice_run_mode:
+                return True
+            else:
+                return False
+        except Exception as e:
+            #print(f"Invalid run mode")
             return False
+        else:
+            return True
 
     def is_valid_project_name(self, proj_name):
         """
         Method for validating user input for project name
         """
-        first_char = proj_name[0]
+        try:
+            if proj_name is not None and len(proj_name) >= 1:
+                first_char = proj_name[0]
 
-        if len(proj_name) <= self.proj_name_length:
-            if first_char in self.proj_name_first_char:
-                if all(ch in self.proj_name_rest_part for ch in proj_name):
-                    return True
+                if len(proj_name) <= self.proj_name_length:
+                    if first_char in self.proj_name_first_char:
+                        if all(ch in self.proj_name_rest_part for ch in proj_name):
+                            return True
+                        return False
+                    return False
                 return False
+            else:
+                #print(f"None type in project name")
+                return False
+        except Exception as e:
+            #print(f"Invalid project nmae")
             return False
-        return False
+        else:
+            return True
 
     def is_valid_path(self, proj_path):
         """
         Method for validating user input for project path
         """
-        if os.path.isdir(proj_path):
+        try:
+            if os.path.isdir(proj_path):
+                return True
+            return False
+        except Exception as e:
+            #print(f"Invalid project path")
+            return False
+        else:
             return True
-        return False
 
     def is_path_exists(self, proj_dir):
         """
         Method to check if project directory already exists, if exists prompt to delete the existing directory
         """
-
-        if os.path.exists(proj_dir) and os.path.isdir(proj_dir):
+        try:
+            if os.path.exists(proj_dir) and os.path.isdir(proj_dir):
+                return True
+            return False
+        except Exception as e:
+            #print("Invalid project dir")
+            return False
+        else:
             return True
-        return False

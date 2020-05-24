@@ -41,7 +41,7 @@ class Utility():
         try:
             shutil.rmtree(proj_dir)
         except Exception as e:
-            print("Path not writable, can not delete directory.")
+            print("Error: Path not writable, can not delete directory.")
             return False
         else:
             return True
@@ -53,20 +53,20 @@ class Utility():
         """
         if proj_type == "ml":
             try:
-                print(f"Creating ML project structure...")
+                print(f"Message: creating ML project structure...")
                 shutil.copytree(self.ml_template_path, proj_dir)
             except Exception as e:
-                print(f"Exception occurred in creaing ml project structure.. {e}")
+                print(f"Error: exception occurred in creaing ml project structure.. {e}")
                 return False
             else:
                 return True 
         
         if proj_type == "dl":
             try:
-                print(f"Creating DL project structure...")
+                print(f"Message: creating DL project structure...")
                 shutil.copytree(self.dl_template_path, proj_dir)
             except Exception as e:
-                print(f"Exception occurred in creating dl project structure.. {e}")
+                print(f"Error: exception occurred in creating dl project structure.. {e}")
                 return False
             else:
                 return True
@@ -77,7 +77,7 @@ class Utility():
         Method to append data loader to existing project
         """
         try:
-            print(f"appending data loader..")
+            print(f"Message: appending data loader..")
             copy_path = os.path.join(project_path, "src")
 
             # lets check if the path exists, if not lets create the src directory
@@ -90,7 +90,7 @@ class Utility():
 
             shutil.copyfile(file_to_copy, where_to_copy)
         except Exception as e:
-            print(f"Exception occurred in dataloader adding. {e}")
+            print(f"Error: exception occurred in dataloader adding. {e}")
             return False
         else:
             return True
@@ -102,7 +102,7 @@ class Utility():
         Method to append network architecture to existing project
         """
         try:
-            print(f"appending network architecture..")
+            print(f"Message: appending network architecture..")
             copy_path = os.path.join(project_path, "src")
 
             # lets check if the path exists, if not lets create the src directory
@@ -115,7 +115,7 @@ class Utility():
 
             shutil.copyfile(file_to_copy, where_to_copy)
         except Exception as e:
-            print(f"Exception occurred in network architecture adding. {e}")
+            print(f"Error: exception occurred in network architecture adding. {e}")
             return False
         else:
             return True
